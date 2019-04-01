@@ -1,6 +1,9 @@
+import json
+from funciones import listarinformacion
 
 
-
+with open("movies.json") as fichero:
+	doc=json.load(fichero)
 
 while True:
 	print ('''
@@ -15,15 +18,15 @@ while True:
 	opcion=int(input("Opcion: "))
 
 	if opcion==1:
-		
+		print (listarinformacion(doc))
 	elif opcion==2:
-		
+		print()
 	elif opcion==3:
-		
+		print()
 	elif opcion==4:
-
+		print()
 	elif opcion==5:
-	
+		print()
 	elif opcion==0:
 		print("Hasta la proxima!")
 		break;
