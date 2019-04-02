@@ -1,7 +1,9 @@
 import json
 from funciones import listarinformacion
-
-
+from funciones import contarinformacion
+from funciones import palabrasdadas
+from funciones import actordado
+from funciones import mediapuntuacionesurl
 with open("movies.json") as fichero:
 	doc=json.load(fichero)
 
@@ -18,15 +20,25 @@ while True:
 	opcion=int(input("Opcion: "))
 
 	if opcion==1:
-		print (listarinformacion(doc))
+		for i in listarinformacion(doc):
+			print('Año {} ---> Titulo: {} ---> Duracion: {}'.format(i['año'],i['titulo'],i['duracion']))
 	elif opcion==2:
-		print()
+		for i in contarinformacion(doc):
+			print('Titulo: {} ---> Nº Actores: {}'.format(i['titulo'],i['actores']))
 	elif opcion==3:
-		print()
+		palabra1=str(input("Dime la primera palabra: "))
+		palabra2=str(input("Dime la segunda palabra: "))
+		print("Las peliculas que coinciden son: ")
+		for i in palabrasdadas(palabra1,palabra2,doc):
+			print('Titulo: {}'.format(i['titulo']))
 	elif opcion==4:
-		print()
+		actor=str(input("Dime el actor: "))
+		print("Las peliculas en las que trabaja son: ")
+		for i in actordado(actor,doc):
+			print('Titulo: {}'.format(i['titulo']))
 	elif opcion==5:
-		print()
+		for i in mediapuntuacionesurl(doc):
+			print('Titulo: {} ---> Puntuacion: {} ---> Poster: {}'.format(i['titulo'],i['puntuacion'],i['url']))
 	elif opcion==0:
 		print("Hasta la proxima!")
 		break;
