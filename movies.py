@@ -37,7 +37,9 @@ while True:
 		for i in actordado(actor,doc):
 			print('Titulo: {}'.format(i['titulo']))
 	elif opcion==5:
-		for i in mediapuntuacionesurl(doc):
+		fecha1=int(input('Dime el año mas bajo: '))
+		fecha2=int(input('Dime el año mas alto: '))
+		for i in mediapuntuacionesurl(fecha1,fecha2,doc)[0:3]:
 			print('Titulo: {} ---> Puntuacion: {} ---> Poster: {}'.format(i['titulo'],i['puntuacion'],i['url']))
 	elif opcion==0:
 		print("Hasta la proxima!")
