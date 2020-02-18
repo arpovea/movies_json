@@ -13,7 +13,7 @@ def contarinformacion (doc):
 def palabrasdadas(palabra1,palabra2,doc):
 	lista=[]
 	for i in doc:
-		if palabra1 and palabra2 in i['storyline']:
+		if palabra1 in i['storyline'] and palabra2 in i['storyline']:
 			lista.append({'titulo':i['title']})
 	return lista
 

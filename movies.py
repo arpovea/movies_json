@@ -43,4 +43,4 @@ while True:
 			print('Titulo: {} ---> Puntuacion: {} ---> Poster: {}'.format(i['titulo'],i['puntuacion'],i['url']))
 	elif opcion==0:
 		print("Hasta la proxima!")
-		break;
+		break
