@@ -24,8 +24,11 @@ def actordado(actor,doc):
 			lista.append({'titulo':i['title']})
 	return lista
 
-def mediapuntuacionesurl(doc):
+def mediapuntuacionesurl(fecha1,fecha2,doc):
 	lista=[]
 	for i in doc:
-		lista.append({'titulo':i['title'],'puntuacion':round(sum(i['ratings'])/len(i['ratings']),2),'url':i['posterurl']})
+		if int(i['year']) >= fecha1 and int(i['year']) <= fecha2 :
+			lista.append({'titulo':i['title'],'puntuacion':round(sum(i['ratings'])/len(i['ratings']),2),'url':i['posterurl']})
+	lista= sorted(lista, key=lambda k: k['puntuacion'])
+	lista=lista[::-1]
 	return lista
